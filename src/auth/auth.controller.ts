@@ -35,8 +35,8 @@ export class AuthController {
         });
 
 
-        // Return only safe data + access token
-        return {user, accessToken};
+        // Redirect back to frontend callback page with the access token as a query param
+        return res.redirect(`${process.env.FRONTEND_URL}/app/auth/callback?accessToken=${accessToken}`);
 
     }
 
