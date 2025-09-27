@@ -29,8 +29,8 @@ export class AuthController {
         // Store refresh token in HttpOnly cookie
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+            secure: false,
+            sameSite: 'none',
             path:'/',
             maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
         });
@@ -59,8 +59,8 @@ export class AuthController {
         // Set new refresh token as HttpOnly cookie
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+            secure: false,
+            sameSite: 'none',
             path:'/',
             maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
         });
